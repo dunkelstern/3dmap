@@ -1,5 +1,7 @@
 OpenStreetMap to ThreeJS renderer for WebGL enabled Browsers
 
+![Screenshot](docs/screenshot.png)
+
 ## How to run the example
 
 This is the quick and dirty version to run the example, if you want to do more than that you'll have to read and understand the code.
