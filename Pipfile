@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+shapely = {version = "*", extras = ["vectorized"]}
+"psycopg2-binary" = "*"
+gunicorn = "*"
+cython = "*"
+pyproj = {git = "https://github.com/jswhit/pyproj.git"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
