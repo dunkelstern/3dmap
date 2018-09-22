@@ -1,0 +1,108 @@
+areas:
+  area_tags: [buildings]
+  linear_tags: [highway, barrier]
+tables:
+  buildings:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - name: type
+      type: mapping_value
+    - key: addr:street
+      name: road
+      type: string
+    - key: addr:housenumber
+      name: house_number
+      type: string
+    mapping:
+      building:
+      - __any__
+      railway:
+      - station
+      aeroway:
+      - terminal
+    type: polygon
+  roads:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - name: type
+      type: mapping_value
+    - key: name
+      name: road
+      type: string
+    - name: class
+      type: mapping_key
+    filters:
+      reject:
+        area: ["yes"]
+    mappings:
+      roads:
+        mapping:
+          highway:
+          - motorway
+          - motorway_link
+          - trunk
+          - trunk_link
+          - primary
+          - primary_link
+          - secondary
+          - secondary_link
+          - tertiary
+          - tertiary_link
+          - road
+          - path
+          - track
+          - service
+          - footway
+          - bridleway
+          - cycleway
+          - steps
+          - pedestrian
+          - living_street
+          - unclassified
+          - residential
+          - raceway
+          man_made:
+          - pier
+          - groyne
+    type: linestring
+  admin:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: admin_level
+      name: admin_level
+      type: integer
+    - key: place
+      name: type
+      type: string
+    mapping:
+      boundary:
+      - administrative
+    type: polygon
+  postal_code:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: postal_code
+      name: postcode
+      type: string
+    mapping:
+      boundary:
+      - postal_code
+    type: polygon
